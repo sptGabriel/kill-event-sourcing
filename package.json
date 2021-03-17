@@ -28,7 +28,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start:dev": "ts-node-dev --inspect --respawn --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/application/index.ts",
+    "start:dev": "ts-node-dev --inspect --respawn --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/index.ts",
     "format": "prettier --write --loglevel silent './**/*.{json,js}'",
     "lint": "eslint --ext .ts .",
     "lint:fix": "yarn lint --fix",
