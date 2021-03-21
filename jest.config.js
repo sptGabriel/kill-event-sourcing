@@ -1,6 +1,8 @@
 module.exports = {
   verbose: true,
+  displayName: 'root',
   modulePathIgnorePatterns: ['dist'],
+  clearMocks: true,
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
   ],
@@ -9,10 +11,6 @@ module.exports = {
   testEnvironment: 'node',
   transform: {
     '.+\\.ts$': 'ts-jest'
-  },
-  moduleNameMapper: {
-    '@/tests/(.*)': '<rootDir>/tests/$1',
-    '@/(.*)': '<rootDir>/src/$1'
   },
   coverageReporters:[
     "json",
