@@ -1,4 +1,5 @@
 import { ICommand, ICommandBus, ICommandHandler } from 'interfaces'
+import { Type } from 'utils/types'
 
 export class CommandBus<Command extends ICommand = ICommand>
   implements ICommandBus<Command> {
@@ -11,19 +12,14 @@ export class CommandBus<Command extends ICommand = ICommand>
   }
 
   public register(
-    data: { commandHandler: ICommandHandler; command: ICommand }[],
+    data: { commandHandler: ICommandHandler; command: Type<ICommand> }[],
   ): void {
     data.forEach(({command,commandHandler}) => {
-			this.bind(commandHandler, command.constructor.name)
+			this.bind(commandHandler, command.name)
 		})
   }
 
   private bind<T extends Command>(handler: ICommandHandler<T>, name: string) {
     this.handlers.set(name, handler)
   }
-
-  //private getCommandName(command: Function): string {
-  //  const { constructor } = Object.getPrototypeOf(command)
-  //  return constructor.name as string
-  //}
 }
