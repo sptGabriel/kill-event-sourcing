@@ -1,4 +1,5 @@
 import { IQuery, IQueryBus, IQueryHandler } from 'interfaces'
+import { Type } from 'utils/types';
 
 export class QueryBus<Query extends IQuery = IQuery>
   implements IQueryBus<Query> {
@@ -11,10 +12,10 @@ export class QueryBus<Query extends IQuery = IQuery>
   }
 
   public register(
-    data: { queryHandler: IQueryHandler; query: IQuery }[],
+    data: { queryHandler: IQueryHandler; query: Type<IQuery> }[],
   ): void {
     data.forEach(({query,queryHandler}) => {
-			this.bind(queryHandler, query.constructor.name)
+			this.bind(queryHandler, query.name)
 		})
   }
 

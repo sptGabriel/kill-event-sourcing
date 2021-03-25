@@ -5,7 +5,7 @@
     "Gabriel Costa Cerqueira <gabrielcerqueira96@hotmail.com> "
   ],
   "description": "event sourcing and cqrs toolkit.",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "keywords": [
     "typescript",
     "event-sourcing",
